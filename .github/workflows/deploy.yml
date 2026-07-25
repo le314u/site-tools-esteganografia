@@ -10,12 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      # 1. Baixar o código do projeto
-      - name: Checkout site-tools-esteganografia
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Preparar arquivos para deploy
       - name: Preparar pasta de deploy
         run: |
           mkdir deploy
@@ -24,8 +21,7 @@ jobs:
             --exclude 'deploy' \
             ./ deploy/
 
-      # 3. Publicar no repositório principal
-      - name: Deploy para /tools/esteganografia
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
