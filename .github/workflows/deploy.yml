@@ -1,4 +1,4 @@
-name: Deploy IP Mask
+name: Deploy Esteganografia
 
 on:
   push:
@@ -10,22 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Passo 1: Puxar o código do repositório
+
+      # 1. Baixar o código do projeto
       - name: Checkout site-tools-esteganografia
         uses: actions/checkout@v4
 
-      # Passo 2: Preparar pasta de deploy sem o README.md
+      # 2. Preparar arquivos para deploy
       - name: Preparar pasta de deploy
         run: |
           mkdir deploy
-          rsync -av --exclude 'README.md' ./ deploy/
+          rsync -av \
+            --exclude 'README.md' \
+            --exclude 'deploy' \
+            ./ deploy/
 
-      # Passo 3: Deploy usando peaceiris/actions-gh-pages
+      # 3. Publicar no repositório principal
       - name: Deploy para /tools/esteganografia
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: le314u/le314u.github.io
           publish_branch: prod
-          publish_dir: deploy
+          publish_dir: ./deploy
           destination_dir: tools/esteganografia
