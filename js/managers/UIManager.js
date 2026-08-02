@@ -1,4 +1,5 @@
 import { FileManager } from "./FileManager.js";
+import help from "../help/driver.js"
 export class UIManager {
 
     constructor(app) {
@@ -13,10 +14,10 @@ export class UIManager {
         this.mergeBtn = document.getElementById("mergeBtn");
         this.txtContent = document.getElementById("txtContent");
         this.status = document.getElementsByClassName("status")[0];
+        this.help = document.getElementById("help");
 
         this.imageIsLoaded = false;
         this.dataIsLoaded = false;
-
         this.app.payload = null;
 
         this.inicializarEventos();
@@ -120,6 +121,15 @@ export class UIManager {
             console.log("pronto para download")
             alert("pronto para download")
         });
+
+        // ===========================
+        // Pedir Ajuda
+        // ===========================
+        this.help.addEventListener("click", async () => {
+            help()
+        });
+
+
 
     }
 

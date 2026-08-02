@@ -4,8 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OpenCV.js - Exemplo</title>
-        <link rel="stylesheet" href="css/style.css">
+        <!-- Driver Js-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
+        <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/hints.css" />
+        <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/hints.iife.js"></script>
+        <!-- OpenCv Js-->
         <script async src="https://cdn.jsdelivr.net/npm/opencv.js/opencv.js"></script>
+        <!-- My Code-->
+        <link rel="stylesheet" href="css/style.css">
+        <script type="module" src="js/help/driver.js"></script>
         <script type="module" src="js/app.js"></script>
     </head>
 
@@ -31,7 +39,7 @@
                 accept="image/*">
                 
                 <canvas id="canvas"></canvas>
-                <button id="saveBtn" disabled >SAVE IMAGE</button>
+                <button class="btnUi" id="saveBtn" disabled >SAVE IMAGE</button>
             </div>
 
             <!-- PAINEL DIREITO -->
@@ -40,10 +48,11 @@
                 <h2>DATA TERMINAL</h2>
 
                 <input type="file" id="dataInput">
-                <button id="resetBtn" disabled >RESET DATA</button>
-                <button id="mergeBtn" disabled >MERGE DATA</button>
-                <button id="exportBtn" disabled >EXPORT DATA</button>
-                <textarea id="txtContent" spellcheck="false" placeholder="Waiting for imported data..."></textarea>
+                <button class="btnUi" id="help" >HELP</button>
+                <button class="btnUi" id="resetBtn" disabled >RESET DATA</button>
+                <button class="btnUi" id="mergeBtn" disabled >MERGE DATA</button>
+                <button class="btnUi" id="exportBtn" disabled >EXPORT DATA</button>
+                <!-- <textarea id="txtContent" spellcheck="false" placeholder="Waiting for imported data..."></textarea> -->
 
             </div>
 
